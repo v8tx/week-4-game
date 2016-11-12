@@ -1,0 +1,44 @@
+body {
+	background: url("") 0 0 repeat #000;
+	margin: 0 auto;
+	font-family: 'Arial', 'Helvetica Neue', Helvetica, sans-serif;
+	padding: 0;
+}
+
+header {
+	background: #ebebeb;
+	width: 100%;	
+	margin: 0;
+	padding: 0;
+	min-height: auto;
+	display: inline-block;
+	background: url("../images/footer_lodyas.png") 0 0 repeat #777;
+}
+h1 {
+	font-family: 'Arial', 'Helvetica Neue', Helvetica, sans-serif;
+	font-size: 60px;
+	font-weight: bold;
+	width: 100%;
+	padding: 0 0 10px 0;
+	margin: 0 0 20px 0;		
+	color: #6BBFEB;
+	text-shadow: 2px 2px #3C7DA6;
+	letter-spacing: -.01em;
+}
+
+p {
+	font-size: 34px;
+	font-weight: bold;
+	width: 100%;
+	padding: 0;
+	margin: 0;
+	color: #fff;			
+}
+#game {
+	display: block;
+	height: auto;
+	margin: 50px 0 0 0;
+	text-align: center;
+	padding: 40px;
+	background: #4EA3D9;
+}
