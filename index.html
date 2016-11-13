@@ -1,27 +1,138 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Hangman: Holiday Theme</title>
+	<title>Crystals Collector</title>
 
 	<!-- Fill in the href to the css such that this HTML file can access the CSS -->
 	<!-- Don't move the HTML or CSS file. Use Relative Linking -->
 	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
-	<link href="https://fonts.googleapis.com/css?family=Great+Vibes" rel="stylesheet"> 
+    
+    <!-- Added link to the jQuery Library -->
+    <script src="https://code.jquery.com/jquery-2.2.3.js" integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4=" crossorigin="anonymous"></script>
+
 </head>
 <body>
 		
-	<div class="container">
-		<div id="game" class="col-md-12">
-			<div class="row">
+<div class="container">
+    <div class="row">
+		
+		<h1 class="text-center">Crystals Collector</h1>
+        
+        <!-- Instructions Panel -->
+        <div class="col-lg-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Instructions</h3>
+                </div>
 
+	            <div class="panel-body">    
+				    <p>You will be given a random number at the start of the game.</p>
+				    
+				    <p>There are four crystals below. By clicking on a crystal you will add a specific amount of points to your total score.</p>
+				    
+				    <p>You will win the game by matching your total score to the random number, you will lose the game if your total score goes above the random number.</p>
+				    
+				    <p>The value of each crystal is hidden from you until you click on it.</p>
+
+				    <p>Each time when the game starts, the game will change the values of each crystal.</p>
+				</div>
+            </div>
+        </div>
+
+        <!-- Game Panel -->
+        <div class="col-lg-6">
+        <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Game</h3>
+                </div>
+                <div class="panel-body">
+                <div class="row">
+                    <button id="button1" class="btn btn-primary crystal one" value=""><h1></h1></button>
+                    <button id="button2" class="btn btn-primary crystal two" value=""><h1></h1></button>
+                    <button id="button3" class="btn btn-primary crystal three" value=""><h1></h1></button>
+                    <button id="button4" class="btn btn-primary crystal four" value=""><h1></h1></button>
+				</div>
+
+				<div class="row">
+					<div class="col-lg-4">Random Number</div>
+					<div class="col-lg-4">Your Total Number</div>
+					<div class="col-lg-4">
+						Wins:<br>
+						Loses:
+					</div>					
+				</div>
+
+<!--                     <h1 id="firstNumber"></h1>
+                    <h1 id="operator"></h1>
+                    <h1 id="secondNumber"></h1>
+                    <hr>
+                    <h1 id="result"></h1> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+
+  $('.number').click(function() {
+    if($('#operator').html() === '') {
+      $('#firstNumber').append($(this).val());
+    } else {
+      $('#secondNumber').append($(this).val());
+    }
+  })
+
+  var operator ={
+    minus: '-',
+    plus: '+',
+    divide: '/',
+    times: 'x',
+    power: '^'
+  };
+
+  var operation = {
+    '+': function(a, b) {
+        return a + b;
+    },
+    '-': function(a, b) {
+        return a - b;
+    },
+    'x': function(a, b) {
+        return a * b;
+    },
+    '/': function(a, b) {
+        return a / b;
+    },
+    '^': function(a, b) {
+        return Math.pow(a, b);
+    }
+  }
+
+  $('.operator').click(function() {
+      $('#operator').html(operator[$(this).val()]);
+  });
+
+  $('.equal').click(function() {
+      $('#result').html(operation[$('#operator').text()](parseInt($('#firstNumber').text()),parseInt($('#secondNumber').text())) );
+  });
+
+  $('.clear').click(function() {
+      $('#firstNumber').html('');
+      $('#operator').html('');
+      $('#secondNumber').html('');
+      $('#result').html('');
+  });
+});
+
+</script>
 			
-		    </div>     
-		</div>     
-	</div>
-			
-<script src="assets/javascript/game.js"></script>
-</body>
+<!-- <script src="assets/javascript/game.js"></script>-->
+
+ </body>
 </html>
   
