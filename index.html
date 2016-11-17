@@ -48,19 +48,25 @@
                     <h3 class="panel-title">Game</h3>
                 </div>
                 <div class="panel-body">
-                <div class="row">
-                    <button id="button1" class="btn btn-primary crystal one" value=""><h1></h1></button>
-                    <button id="button2" class="btn btn-primary crystal two" value=""><h1></h1></button>
-                    <button id="button3" class="btn btn-primary crystal three" value=""><h1></h1></button>
-                    <button id="button4" class="btn btn-primary crystal four" value=""><h1></h1></button>
+                <div class="row crystalContainer">
+                    <button id="yellowCrystal" class="btn btn-primary crystal one" value=""><h1></h1></button>
+                    <button id="blueCrystal" class="btn btn-primary crystal two" value=""><h1></h1></button>
+                    <button id="redCrystal" class="btn btn-primary crystal three" value=""><h1></h1></button>
+                    <button id="pinkCrystal" class="btn btn-primary crystal four" value=""><h1></h1></button>
 				</div>
 
 				<div class="row">
-					<div class="col-lg-4">Random Number</div>
-					<div class="col-lg-4">Your Total Number</div>
-					<div class="col-lg-4">
-						Wins:<br>
-						Loses:
+					<div class="col-lg-4 subhead">Random Number
+            <div id="totalScore" class="num"></div>
+          </div>
+					
+          <div class="col-lg-4 subhead">Your Total Number
+            <div id="currentScore" class="num"></div>
+          </div>
+					
+          <div class="col-lg-4">
+						<strong>Wins:</strong><br><div id="wins"></div>
+						<strong>Losses:</strong><div id="loss"></div>
 					</div>					
 				</div>
 
@@ -75,63 +81,8 @@
     </div>
 </div>
 
-<script type="text/javascript">
 
-$(document).ready(function(){
-
-  $('.number').click(function() {
-    if($('#operator').html() === '') {
-      $('#firstNumber').append($(this).val());
-    } else {
-      $('#secondNumber').append($(this).val());
-    }
-  })
-
-  var operator ={
-    minus: '-',
-    plus: '+',
-    divide: '/',
-    times: 'x',
-    power: '^'
-  };
-
-  var operation = {
-    '+': function(a, b) {
-        return a + b;
-    },
-    '-': function(a, b) {
-        return a - b;
-    },
-    'x': function(a, b) {
-        return a * b;
-    },
-    '/': function(a, b) {
-        return a / b;
-    },
-    '^': function(a, b) {
-        return Math.pow(a, b);
-    }
-  }
-
-  $('.operator').click(function() {
-      $('#operator').html(operator[$(this).val()]);
-  });
-
-  $('.equal').click(function() {
-      $('#result').html(operation[$('#operator').text()](parseInt($('#firstNumber').text()),parseInt($('#secondNumber').text())) );
-  });
-
-  $('.clear').click(function() {
-      $('#firstNumber').html('');
-      $('#operator').html('');
-      $('#secondNumber').html('');
-      $('#result').html('');
-  });
-});
-
-</script>
-			
-<!-- <script src="assets/javascript/game.js"></script>-->
+<script src="assets/javascript/game.js"></script>
 
  </body>
 </html>
